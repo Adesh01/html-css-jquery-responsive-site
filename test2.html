@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Peek-A-Boo</title>
+		<style>
+		.solution { margin: auto; width: 900px; }
+		h1 {font-size:20px;}
+		a.item {
+			display:inline-block;
+			border: solid 1px #369;
+			width:330px;
+			height:330px;
+			overflow:hidden;
+			position:relative;
+			text-decoration: none;
+		}
+		a.item .desc {
+			background-color: rgba(6,30,46, .9);
+			position:absolute;
+			top:0px;
+			left: 0px;
+			display:block;
+			font-size:18px;
+			line-height:28px;
+			padding:30px;
+			color: #fff;
+			 margin:0px; 
+			 width:330px;
+			 height:330px;
+			 opacity:0;
+		}
+/* ORIGINAL:
+.solution { font-size: 0px; margin: auto; width: 1075px; }
+h1 { font-size: 20px; }
+a.item {
+	display:inline-block;
+	border: solid 1px #369;
+	width:350px;
+	height:350px;
+	overflow:hidden;
+	position:relative;
+	text-decoration: none;
+}
+a.item .text {
+	background-color: rgba(34,66,73, .8);
+	position:absolute;
+	left:0px;
+	bottom: -38px;
+	padding:15px;
+	color: #fff;
+}
+a.item .text h1 { margin:0px; text-transform: uppercase; font-size: 16px; }
+a.item .text .desc { margin:0px; opacity: 0; font-size: 12px; }*/
+		</style>
+	</head>
+	<body>
+		<section class="solution">
+			<a href="#" class="item">
+				<img class="touch" src="img/restau-bar.jpg">
+				
+				<div class="desc">Description may look<br>
+					something like this. Ya know,<br>
+					 a small snippet of information?
+				</div>
+				
+			</a>
+			
+			<a href="#" class="item">
+				<img src="img/vip-nightlife.jpg">
+				<div class="text">
+					<h1> SOME TITLE</h1>
+					<div class="desc">Description may look something like this. Ya know, a small snippet of information?</div>
+				</div>
+			</a>
+			
+			
+		</section>
+
+		<script src="js/vendor/jquery-1.11.3.min.js"></script>
+		<script>
+			function box_up() {
+				var touch = $(this).find('.touch');
+				var desc = $(this).find('.desc');
+				touch.stop().animate({'opacity':'.8'}, 500);
+				desc.stop().animate({'left':'0','opacity':'1'}, 200);
+			}
+			function box_down() {
+				var touch = $(this).find('.touch');
+				var desc = $(this).find('.desc');
+				touch.stop().animate({'opacity':'1'}, 200);
+				desc.stop().animate({'left':'0px','opacity':'0'}, 500);
+			}
+			$('.item').mouseover(box_up);
+			$('.item').mouseout(box_down);
+
+
+
+
+
+
+			/*original
+			function box_up() {
+				var text = $(this).find('.text');
+				var desc = $(this).find('.desc');
+				text.stop().animate({'bottom':'0px'}, 1000);
+				desc.stop().animate({'opacity':'1'}, 2500);
+			}
+			function box_down() {
+				var text = $(this).find('.text');
+				var desc = $(this).find('.desc');
+				text.stop().animate({'bottom':'-38px'}, 1000);
+				desc.stop().animate({'opacity':'0'}, 500);
+			}
+			$('.item').mouseover(box_up);
+			$('.item').mouseout(box_down);*/
+		</script>
+
+	</body>
+</html>
